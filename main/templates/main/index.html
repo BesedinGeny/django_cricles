@@ -1,0 +1,17 @@
+{% extends 'main/base.html'%}
+{% block title %}
+Ввод кругов
+{% endblock %}
+
+{% block content %}
+    <h1>Введите данные круга</h1>
+    <form method='post'>
+        {% csrf_token %}
+        {{ form.x}}<br>
+        {{ form.y}}<br>
+        {{ form.r}}<br>
+
+        <button type="submit" style="margin: 10px 0px">Добавить</button>
+    </form>
+{% endblock %}
+

@@ -1,0 +1,20 @@
+{% extends 'main/base.html'%}
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block content %}
+    <h1>вывод</h1>
+
+    {% if circles %}
+        {% for el in circles %}
+            <div style="padding: 40px 0px">
+                <h3> {{ el.x }}</h3>
+                <h3> {{el.y }}</h3>
+                <h3> {{el.r }}</h3>
+            </div>
+        {% endfor %}
+    {%else%}
+        <h3>Нет кругов</h3>
+    {%endif%}
+{% endblock %}
