@@ -1,4 +1,5 @@
 {% extends 'main/base.html'%}
+
 {% block title %}
 Ввод кругов
 {% endblock %}
@@ -10,8 +11,11 @@
         {{ form.x}}<br>
         {{ form.y}}<br>
         {{ form.r}}<br>
-
-        <button type="submit" style="margin: 10px 0px">Добавить</button>
+        {% if user.is_authenticated%}
+        <button type="submit" style="margin: 10px 0px" >Добавить</button>
+        {%else%}
+        <button type="submit" style="margin: 10px 0px" disabled >Добавить</button>
+        {%endif%}
     </form>
 {% endblock %}
 

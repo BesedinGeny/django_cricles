@@ -5,16 +5,26 @@
 
 {% block content %}
     <h1>вывод</h1>
+    <div style=" float: right">
 
+        <img src="/static/main/circles.png" alt="" width="750">
+
+    </div >
+    <p></p>
     {% if circles %}
         {% for el in circles %}
-            <div style="padding: 40px 0px">
-                <h3> {{ el.x }}</h3>
-                <h3> {{el.y }}</h3>
-                <h3> {{el.r }}</h3>
+            <div style="padding: 20px 0px">
+                <h3> X: {{ el.x }}</h3>
+                <h3> Y: {{ el.y }}</h3>
+                <h3> R: {{ el.r }}</h3>
             </div>
         {% endfor %}
     {%else%}
         <h3>Нет кругов</h3>
     {%endif%}
+     <form method='post'>
+        {% csrf_token %}
+        <button type="submit" style="margin: 10px 0px" name="_paint" >нарисовать</button>
+        <button type="submit" style="margin: 10px 0px" name ="_clear">отчистить</button>
+    </form>
 {% endblock %}
