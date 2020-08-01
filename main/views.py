@@ -19,17 +19,15 @@ def index(request):
 
 
 def result(request):
+    needToUpload = False
     if request.method=="POST":
+        needToUpload = True
         if "_paint" in request.POST:
             paint()
-            # несмотря на то, что отрисовка идет долго
-            # страница обновляется быстро и картинка
-            # не успевает загрузиться
-            time.sleep(0.5)
             return redirect('/result')
         elif "_clear" in request.POST:
             clear()
             return redirect('/result')
 
     circles = Circle.objects.all()
-    return render(request, 'main/result.html', {'title': 'Вывод', 'circles' : circles})
+    return render(request, 'main/result.html', {'title': 'Вывод', 'circles': circles})
